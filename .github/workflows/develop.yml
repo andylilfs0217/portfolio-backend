@@ -1,9 +1,9 @@
-name: Deploy production
+name: Deploy staging
 
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build:
@@ -13,6 +13,6 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "andy-portfolio-backend-prd"
+          heroku_app_name: "andy-portfolio-backend-stg"
           heroku_email: "andylilfs@gmail.com"
           usedocker: true
