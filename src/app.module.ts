@@ -1,3 +1,4 @@
+import { TodoModule } from './todo/todo.module';
 import { GithubModule } from './github/github.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -19,10 +20,11 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
       entities: [],
-      synchronize: true,
+      synchronize: process.env.ENVIRONMENT === 'development' ? true : false,
       autoLoadEntities: true,
     }),
     GithubModule,
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
