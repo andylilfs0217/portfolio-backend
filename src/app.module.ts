@@ -1,3 +1,4 @@
+import { HomeModule } from './home/home.module';
 import { TodoModule } from './todo/todo.module';
 import { GithubModule } from './github/github.module';
 import { Module } from '@nestjs/common';
@@ -25,6 +26,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
     }),
     GithubModule,
     TodoModule,
+    HomeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
